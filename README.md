@@ -5,16 +5,19 @@ A comprehensive MERN stack web application designed to manage student attendance
 ## 🎯 Features
 
 ### 1. **Student Management**
+
 - Add new students with Roll Number, Name, and Semester
 - View complete list of all registered students
 - Store and manage student information efficiently
 
 ### 2. **Attendance Management**
+
 - Track total lectures and attended lectures for each student
 - Automatically calculate attendance percentage
 - AI-assisted warning system: Shows "Attendance Shortage" warning if attendance < 75%
 
 ### 3. **Performance Management**
+
 - Record student marks (out of 100)
 - AI-assisted performance remark system:
   - **≥ 75 marks** → "Good"
@@ -22,6 +25,7 @@ A comprehensive MERN stack web application designed to manage student attendance
   - **< 50 marks** → "Needs Improvement"
 
 ### 4. **Comprehensive Reporting**
+
 - View detailed student reports with:
   - Student information
   - Attendance details with percentage and status
@@ -31,6 +35,7 @@ A comprehensive MERN stack web application designed to manage student attendance
 ## 🏗️ Technology Stack
 
 ### Backend
+
 - **Node.js** - JavaScript runtime
 - **Express.js** - Web framework
 - **MongoDB** - NoSQL database
@@ -39,6 +44,7 @@ A comprehensive MERN stack web application designed to manage student attendance
 - **Nodemon** - Development tool for auto-reload
 
 ### Frontend
+
 - **React.js** - UI library
 - **React Router DOM** - Client-side routing
 - **Axios** - HTTP client for API calls
@@ -97,6 +103,7 @@ GVP_AI_Hackathon_2026/
 ## 🚀 Installation & Setup
 
 ### Prerequisites
+
 - Node.js (v14 or higher)
 - MongoDB (running locally or connection string ready)
 - npm or yarn
@@ -104,17 +111,20 @@ GVP_AI_Hackathon_2026/
 ### Backend Setup
 
 1. **Navigate to backend directory:**
+
    ```bash
    cd backend
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Configure environment variables:**
    - Open `.env` file and verify MongoDB URI:
+
    ```env
    MONGO_URI=mongodb://localhost:27017/gvp_ai_attendance
    PORT=5000
@@ -122,20 +132,24 @@ GVP_AI_Hackathon_2026/
    ```
 
 4. **Start the backend server:**
+
    ```bash
    npm run dev
    ```
+
    - Server will run on `http://localhost:5000`
    - Health check endpoint: `http://localhost:5000/api/health`
 
 ### Frontend Setup
 
 1. **Navigate to frontend directory:**
+
    ```bash
    cd frontend
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
@@ -144,14 +158,17 @@ GVP_AI_Hackathon_2026/
    - `.env` file is configured for `http://localhost:5000/api`
 
 4. **Start the development server:**
+
    ```bash
    npm start
    ```
+
    - Application will open on `http://localhost:3000`
 
 ## 📚 API Endpoints
 
 ### Base URL
+
 ```
 http://localhost:5000/api
 ```
@@ -159,6 +176,7 @@ http://localhost:5000/api
 ### Student Management
 
 #### 1. Add a New Student
+
 - **Endpoint:** `POST /students/add`
 - **Body:**
   ```json
@@ -173,22 +191,28 @@ http://localhost:5000/api
   {
     "success": true,
     "message": "Student added successfully",
-    "student": { /* student object */ }
+    "student": {
+      /* student object */
+    }
   }
   ```
 
 #### 2. Get All Students
+
 - **Endpoint:** `GET /students`
 - **Response:**
   ```json
   {
     "success": true,
     "message": "Students fetched successfully",
-    "students": [ /* array of students */ ]
+    "students": [
+      /* array of students */
+    ]
   }
   ```
 
 #### 3. Update Attendance
+
 - **Endpoint:** `POST /students/attendance/:rollNo`
 - **Body:**
   ```json
@@ -208,6 +232,7 @@ http://localhost:5000/api
   ```
 
 #### 4. Update Marks
+
 - **Endpoint:** `POST /students/marks/:rollNo`
 - **Body:**
   ```json
@@ -225,6 +250,7 @@ http://localhost:5000/api
   ```
 
 #### 5. Get Student Report
+
 - **Endpoint:** `GET /students/report/:rollNo`
 - **Response:**
   ```json
@@ -248,27 +274,32 @@ http://localhost:5000/api
 ## 🎨 Frontend Pages
 
 ### 1. **Home Page**
+
 - Landing page with feature overview
 - Navigation cards to different sections
 - Information about the system
 - Evaluation criteria
 
 ### 2. **Add Student**
+
 - Form to add new students
 - Fields: Roll Number, Name, Semester
 - Success/error messages
 
 ### 3. **Mark Attendance**
+
 - Form to update attendance for a student
 - Fields: Roll Number, Total Lectures, Attended Lectures
 - Displays attendance percentage and warning if needed
 
 ### 4. **Enter Marks**
+
 - Form to record student marks
 - Fields: Roll Number, Marks (0-100)
 - Displays performance remark automatically
 
 ### 5. **Student Report**
+
 - Search student by roll number
 - Displays comprehensive report with:
   - Student info
@@ -276,6 +307,7 @@ http://localhost:5000/api
   - Performance metrics
 
 ### 6. **View All Students**
+
 - Table view of all registered students
 - Shows basic information
 - Refresh button to reload data
@@ -283,69 +315,81 @@ http://localhost:5000/api
 ## 🧠 AI Logic Implementation
 
 ### Attendance Warning Logic
+
 ```javascript
 if (attendancePercentage < 75) {
-  return "Attendance Shortage"
+  return "Attendance Shortage";
 } else {
-  return "Attendance is good"
+  return "Attendance is good";
 }
 ```
 
 ### Performance Remark Logic
+
 ```javascript
 if (marks >= 75) {
-  return "Good"
+  return "Good";
 } else if (marks >= 50 && marks < 75) {
-  return "Average"
+  return "Average";
 } else {
-  return "Needs Improvement"
+  return "Needs Improvement";
 }
 ```
 
 ## 🔧 Development
 
 ### Running Backend in Development
+
 ```bash
 cd backend
 npm run dev
 ```
+
 Uses Nodemon for auto-reload on file changes.
 
 ### Running Frontend in Development
+
 ```bash
 cd frontend
 npm start
 ```
+
 Uses React Scripts for development with hot reload.
 
 ### Building for Production
 
 **Frontend:**
+
 ```bash
 cd frontend
 npm run build
 ```
+
 Creates optimized build in `build/` folder.
 
 ## 🐛 Troubleshooting
 
 ### MongoDB Connection Failed
+
 - Ensure MongoDB is running on `localhost:27017`
 - Check MONGO_URI in backend `.env` file
 - Verify MongoDB service is active
 
 ### API Connection Failed
+
 - Backend must be running on port 5000
 - Check `REACT_APP_API_BASE_URL` in frontend `.env`
 - Verify CORS is enabled in backend
 
 ### Port Already in Use
+
 - Change port in backend `.env` file
 - Update API URL in frontend `.env` accordingly
 
 ## 📝 Data Model
 
 ### Student Schema
+
 ```javascript
 {
   rollNo: String (unique, required),

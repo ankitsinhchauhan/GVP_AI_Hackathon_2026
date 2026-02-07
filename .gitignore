@@ -39,5 +39,5 @@ logs/
 
 node_modules
 .env
-dist
 build
+dist
